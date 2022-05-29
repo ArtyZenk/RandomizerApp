@@ -11,7 +11,7 @@
         <!--Random-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RandomizerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="RandomizerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,6 +32,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                     <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="getResultButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="sY8-Kv-TSP"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="a6x-jV-YLw">
                                 <rect key="frame" x="80.333333333333343" y="238.00000000000003" width="267.33333333333326" height="49.333333333333343"/>
@@ -82,15 +85,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="maximumValueLabel" destination="NVb-YL-bgp" id="7eO-EX-pYn"/>
+                        <outlet property="minimumValueLabel" destination="T0T-nf-RuV" id="sbU-oS-sIc"/>
+                        <outlet property="resultLabel" destination="5NM-W4-MIf" id="N2f-FW-Za7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068.1159420289855" y="-25.446428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="Iwe-sb-9uM">
             <objects>
-                <viewController id="74b-bw-xGt" sceneMemberID="viewController">
+                <viewController id="74b-bw-xGt" customClass="SettingsViewController" customModule="RandomizerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oxz-UD-CUI">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +109,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minimum value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r9H-jz-gA4">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Maximum value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J1I-YI-exv">
                                         <rect key="frame" x="0.0" y="68" width="300" height="34"/>
@@ -122,6 +130,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Save">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="gOu-ok-LSy" kind="unwind" unwindAction="unwindFor:" id="3bS-fd-1Dl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lc6-Mt-0FW">
                                         <rect key="frame" x="0.0" y="59" width="99.333333333333329" height="44"/>
@@ -130,6 +141,9 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                             <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cancelButtonPressed" destination="74b-bw-xGt" eventType="touchUpInside" id="wo3-al-gmu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -144,8 +158,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="huV-eA-dJe"/>
+                    <connections>
+                        <outlet property="maximumTF" destination="J1I-YI-exv" id="gSp-PA-faj"/>
+                        <outlet property="minimumTF" destination="r9H-jz-gA4" id="rjK-s5-vOk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuK-iI-8RJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="gOu-ok-LSy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1898" y="-26"/>
         </scene>
