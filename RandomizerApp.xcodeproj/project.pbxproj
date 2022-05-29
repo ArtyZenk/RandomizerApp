@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		F368973028424C9E00630B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F368972F28424C9E00630B45 /* AppDelegate.swift */; };
 		F368973228424C9E00630B45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F368973128424C9E00630B45 /* SceneDelegate.swift */; };
-		F368973428424C9E00630B45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F368973328424C9E00630B45 /* ViewController.swift */; };
+		F368973428424C9E00630B45 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F368973328424C9E00630B45 /* MainViewController.swift */; };
 		F368973728424C9E00630B45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F368973528424C9E00630B45 /* Main.storyboard */; };
 		F368973928424C9F00630B45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F368973828424C9F00630B45 /* Assets.xcassets */; };
 		F368973C28424C9F00630B45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F368973A28424C9F00630B45 /* LaunchScreen.storyboard */; };
+		F3BF536A2842585100261706 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BF53692842585100261706 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F368972C28424C9E00630B45 /* RandomizerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomizerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F368972F28424C9E00630B45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F368973128424C9E00630B45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F368973328424C9E00630B45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F368973328424C9E00630B45 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F368973628424C9E00630B45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F368973828424C9F00630B45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F368973B28424C9F00630B45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F368973D28424C9F00630B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3BF53692842585100261706 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		F368972E28424C9E00630B45 /* RandomizerApp */ = {
 			isa = PBXGroup;
 			children = (
+				F3BF536F284262CC00261706 /* Sources */,
+				F3BF5370284262DA00261706 /* Resources */,
+			);
+			path = RandomizerApp;
+			sourceTree = "<group>";
+		};
+		F3BF536D284262B700261706 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				F368972F28424C9E00630B45 /* AppDelegate.swift */,
 				F368973128424C9E00630B45 /* SceneDelegate.swift */,
-				F368973328424C9E00630B45 /* ViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F3BF536E284262C100261706 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F368973328424C9E00630B45 /* MainViewController.swift */,
+				F3BF53692842585100261706 /* SettingsViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F3BF536F284262CC00261706 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F3BF536D284262B700261706 /* App */,
+				F3BF536E284262C100261706 /* Scenes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F3BF5370284262DA00261706 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				F368973528424C9E00630B45 /* Main.storyboard */,
 				F368973828424C9F00630B45 /* Assets.xcassets */,
 				F368973A28424C9F00630B45 /* LaunchScreen.storyboard */,
 				F368973D28424C9F00630B45 /* Info.plist */,
 			);
-			path = RandomizerApp;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F368973428424C9E00630B45 /* ViewController.swift in Sources */,
+				F368973428424C9E00630B45 /* MainViewController.swift in Sources */,
 				F368973028424C9E00630B45 /* AppDelegate.swift in Sources */,
 				F368973228424C9E00630B45 /* SceneDelegate.swift in Sources */,
+				F3BF536A2842585100261706 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +325,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9DSLGCL4J8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RandomizerApp/Info.plist;
+				INFOPLIST_FILE = RandomizerApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +353,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9DSLGCL4J8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RandomizerApp/Info.plist;
+				INFOPLIST_FILE = RandomizerApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
