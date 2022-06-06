@@ -16,14 +16,20 @@ class SettingsViewController: UIViewController {
     var minimumValue = String()
     var maximumValue = String()
     
+    var delegate: SettingViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
-    @IBAction func cancelButtonPressed() {
-        dismiss(animated: true)
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
     }
+    
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        delegate.setNewValue(for: minimumTF.text ?? "0", and: maximumTF.text ?? "100")
+    }
+    
 }
 
 // MARK: - Private Methods

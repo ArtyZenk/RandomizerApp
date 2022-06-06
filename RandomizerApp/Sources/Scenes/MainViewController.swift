@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SettingViewControllerDelegate {
+    func setNewValue(for minimumNumber: String, and maximumNumber: String)
+}
+
 class MainViewController: UIViewController {
     
     // MARK: - Elements
@@ -30,10 +34,11 @@ class MainViewController: UIViewController {
         resultLabel.text = String(Int.random(in: (minimumValue ?? 0)...(maximumValue ?? 100)))
     }
     
-    @IBAction func unwind(for segue: UIStoryboardSegue) {
-        guard let settingsVC = segue.source as? SettingsViewController else { return }
-        minimumValueLabel.text = settingsVC.minimumTF.text
-        maximumValueLabel.text = settingsVC.maximumTF.text
-    }
 }
 
+extension MainViewController: SettingViewControllerDelegate {
+    func setNewValue(for minimumNumber: String, and maximumNumber: String) {
+        minimumValueLabel.text = minimumNumber
+        maximumValueLabel.text = maximumNumber
+    }
+}
