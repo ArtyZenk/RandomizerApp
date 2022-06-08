@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SettingViewControllerDelegate {
-    func setNewValue(for minimumNumber: String, and maximumNumber: String)
+    func setNewValue(for randomNumber: RandomNumber)
 }
 
 class MainViewController: UIViewController {
@@ -19,26 +19,32 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var resultLabel: UILabel!
     
+    private var randomNumber = RandomNumber(minimumNumber: 0, maximumNumber: 100)
+    
+    // MARK: - Lifecycle
+    override func viewDidLoad() {
+        maximumValueLabel.text = String(randomNumber.minimumNumber)
+        maximumValueLabel.text = String(randomNumber.maximumNumber)
+    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let settingsVC = segue.destination as? SettingsViewController else { return }
-        settingsVC.minimumValue = minimumValueLabel.text ?? "0"
-        settingsVC.maximumValue = maximumValueLabel.text ?? "100"
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let settingsVC = navigationVC.topViewController as? SettingsViewController else { return }
+        settingsVC.randomNumber = randomNumber
+        settingsVC.delegate = self
     }
 
     // MARK: - Actions
     @IBAction func getResultButtonPressed() {
-        let minimumValue = Int(minimumValueLabel.text ?? "0")
-        let maximumValue = Int(maximumValueLabel.text ?? "100")
-        
-        resultLabel.text = String(Int.random(in: (minimumValue ?? 0)...(maximumValue ?? 100)))
+        resultLabel.text = String(randomNumber.getRandom)
     }
     
 }
 
 extension MainViewController: SettingViewControllerDelegate {
-    func setNewValue(for minimumNumber: String, and maximumNumber: String) {
-        minimumValueLabel.text = minimumNumber
-        maximumValueLabel.text = maximumNumber
+    func setNewValue(for randomNumber: RandomNumber) {
+        minimumValueLabel.text = String(randomNumber.minimumNumber)
+        maximumValueLabel.text = String(randomNumber.maximumNumber)
+        self.randomNumber = randomNumber
     }
 }
