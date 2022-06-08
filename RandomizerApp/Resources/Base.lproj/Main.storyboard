@@ -81,7 +81,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="0wG-xs-Q5h"/>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="P8E-5U-bTM">
                             <connections>
-                                <segue destination="74b-bw-xGt" kind="presentation" id="aGN-xV-7V9"/>
+                                <segue destination="CfB-Hi-Bzf" kind="presentation" id="aGN-xV-7V9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="5MX-Uy-t5t">
-                                <rect key="frame" x="64" y="194" width="300" height="102"/>
+                                <rect key="frame" x="64" y="206" width="300" height="102"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minimum value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r9H-jz-gA4">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
@@ -121,52 +121,34 @@
                                     <constraint firstAttribute="width" constant="300" id="DdH-wg-ua2"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qcR-VJ-gTF">
-                                <rect key="frame" x="164.33333333333334" y="619" width="99.333333333333343" height="103"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCO-bc-zvx">
-                                        <rect key="frame" x="0.0" y="0.0" width="99.333333333333329" height="44"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Save">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="gOu-ok-LSy" kind="unwind" unwindAction="unwindFor:" id="3bS-fd-1Dl"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lc6-Mt-0FW">
-                                        <rect key="frame" x="0.0" y="59" width="99.333333333333329" height="44"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Cancel">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
-                                            <color key="baseForegroundColor" systemColor="systemPinkColor"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="cancelButtonPressed" destination="74b-bw-xGt" eventType="touchUpInside" id="wo3-al-gmu"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Od-jA-Stu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5MX-Uy-t5t" firstAttribute="centerX" secondItem="oxz-UD-CUI" secondAttribute="centerX" id="5RD-56-Ik6"/>
-                            <constraint firstItem="qcR-VJ-gTF" firstAttribute="centerX" secondItem="oxz-UD-CUI" secondAttribute="centerX" id="JbC-kb-wxE"/>
-                            <constraint firstItem="3Od-jA-Stu" firstAttribute="bottom" secondItem="qcR-VJ-gTF" secondAttribute="bottom" constant="150" id="mtg-Rm-rkK"/>
                             <constraint firstItem="5MX-Uy-t5t" firstAttribute="top" secondItem="3Od-jA-Stu" secondAttribute="top" constant="150" id="uAM-g0-OhE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="huV-eA-dJe"/>
+                    <navigationItem key="navigationItem" id="huV-eA-dJe">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="nyQ-Hd-yfp">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="74b-bw-xGt" id="Pbe-t2-7bM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="9D1-uX-RDn">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="74b-bw-xGt" id="5ag-vW-8Q0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="maximumTF" destination="J1I-YI-exv" id="gSp-PA-faj"/>
                         <outlet property="minimumTF" destination="r9H-jz-gA4" id="rjK-s5-vOk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuK-iI-8RJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="gOu-ok-LSy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1898" y="-26"/>
+            <point key="canvasLocation" x="2796.7289719626165" y="-26.565874730021601"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iqB-vO-dfb">
@@ -186,6 +168,24 @@
             </objects>
             <point key="canvasLocation" x="223" y="-26"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k4a-xb-oS5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CfB-Hi-Bzf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9WN-fr-bV8">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="74b-bw-xGt" kind="relationship" relationship="rootViewController" id="Qan-4X-mh9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UN3-ec-iZY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896.7289719626167" y="-26.565874730021601"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="linkColor">
@@ -196,9 +196,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
